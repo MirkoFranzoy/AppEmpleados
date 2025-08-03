@@ -18,12 +18,12 @@ export default function LoginPage() {
         signInWithPopup(auth, provider)
             .then((result) => {
                 // Obtener el token y guardarlo en localStorage
-                result.user.getIdToken().then(idToken => {
+                result.user?.getIdToken().then(idToken => {
                     localStorage.setItem('authToken', idToken);
                     // Guardar información básica del usuario
                     localStorage.setItem('user', JSON.stringify({
-                        email: result.user.email,
-                        uid: result.user.uid
+                        email: result.user?.email,
+                        uid: result.user?.uid
                     }));
                     // Redirigir al usuario a la página de empleados después del login
                     router.push('/empleados');
@@ -39,7 +39,7 @@ export default function LoginPage() {
         <div className={styles.loginContainer}>
             <h1>Bienvenido al Sistema de Empleados</h1>
             <button className={styles.googleBtn} onClick={handleGoogleLogin}>
-                <img src="https://www.google.com/favicon.ico" alt="Google" width="20" height="20" />
+                <img src="https://www.google.com/favicon.ico" alt="Google" width="20" height="20" />{' '}
                 Iniciar sesión con Google
             </button>
         </div>

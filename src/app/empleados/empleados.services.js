@@ -92,7 +92,7 @@ const EmpleadosService = {
             }
             const data = await response.json();
             const nombresPaises = data
-                .map(pais => pais.name.common)
+                .map(pais => pais?.name?.common)
                 .sort();
             return nombresPaises;
         } catch (error) {
