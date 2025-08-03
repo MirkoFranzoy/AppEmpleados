@@ -2,5 +2,5 @@ projectKey=AppEmpleados
 serverUrl=http://localhost:9000
 serverVersion=25.7.0.110598
 dashboardUrl=http://localhost:9000/dashboard?id=AppEmpleados
-ceTaskId=21880a57-d249-4d58-a11d-5b7a72f60410
-ceTaskUrl=http://localhost:9000/api/ce/task?id=21880a57-d249-4d58-a11d-5b7a72f60410
+ceTaskId=a6dfe2a5-ff26-4b89-9889-9c2c325a1ff1
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a6dfe2a5-ff26-4b89-9889-9c2c325a1ff1
