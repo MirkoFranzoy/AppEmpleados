@@ -12,9 +12,33 @@ const serviceAccount = require(process.env.CREDENTIALS_PATH || './ejercicio-empl
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Ocultar información de versión de Express
+app.disable('x-powered-by');
+
 // Middleware
-app.use(cors());
-app.use(bodyParser.json());
+// Configuración segura de CORS
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  methods: ['GET', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  maxAge: 86400 // 24 horas en segundos
+};
+app.use(cors(corsOptions));
+
+// Limitar el tamaño de las solicitudes JSON para prevenir ataques DoS
+app.use(bodyParser.json({ limit: '1mb' }));
+
+// Configurar encabezados de seguridad
+app.use((req, res, next) => {
+  // Prevenir que el navegador MIME-sniffing una respuesta de su tipo de contenido declarado
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  // Habilitar la protección XSS en navegadores antiguos
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  // Evitar que la página se cargue en un iframe
+  res.setHeader('X-Frame-Options', 'DENY');
+  next();
+});
 
 // Configuración de Firebase
 const firebaseConfig = {

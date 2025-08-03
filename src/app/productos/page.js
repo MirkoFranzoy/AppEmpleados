@@ -273,9 +273,10 @@ export default function Productos() {
                 <h2>{productoEditando ? 'Editar Producto' : 'Agregar Producto'}</h2>
                 <form onSubmit={handleSubmit}>
                   <div className={styles.formGroup}>
-                    <label>Nombre:</label>
+                    <label htmlFor="nombre">Nombre:</label>
                     <input
                       type="text"
+                      id="nombre"
                       name="nombre"
                       value={formData.nombre}
                       onChange={handleInputChange}
@@ -283,8 +284,9 @@ export default function Productos() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Categoría:</label>
+                    <label htmlFor="categoria">Categoría:</label>
                     <select
+                      id="categoria"
                       name="categoria"
                       value={formData.categoria}
                       onChange={handleInputChange}
@@ -297,9 +299,10 @@ export default function Productos() {
                     </select>
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Precio:</label>
+                    <label htmlFor="precio">Precio:</label>
                     <input
                       type="text"
+                      id="precio"
                       name="precio"
                       value={formData.precio}
                       onChange={handleInputChange}
@@ -309,8 +312,9 @@ export default function Productos() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Moneda:</label>
+                    <label htmlFor="moneda">Moneda:</label>
                     <select
+                      id="moneda"
                       name="moneda"
                       value={formData.moneda}
                       onChange={handleInputChange}

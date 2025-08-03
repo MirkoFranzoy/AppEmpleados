@@ -287,9 +287,10 @@ export default function Home() {
                 <h2>{empleadoEditando ? 'Editar Empleado' : 'Agregar Empleado'}</h2>
                 <form onSubmit={handleSubmit}>
                   <div className={styles.formGroup}>
-                    <label>Nombre:</label>
+                    <label htmlFor="nombre">Nombre:</label>
                     <input
                       type="text"
+                      id="nombre"
                       name="nombre"
                       value={formData.nombre}
                       onChange={handleInputChange}
@@ -297,9 +298,10 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Email:</label>
+                    <label htmlFor="email">Email:</label>
                     <input
                       type="email"
+                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
@@ -307,8 +309,9 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Rol:</label>
+                    <label htmlFor="rol">Rol:</label>
                     <select
+                      id="rol"
                       name="rol"
                       value={formData.rol}
                       onChange={handleInputChange}
@@ -321,9 +324,10 @@ export default function Home() {
                     </select>
                   </div>
                   <div className={styles.formGroup}>
-                    <label>DNI:</label>
+                    <label htmlFor="dni">DNI:</label>
                     <input
                       type="text"
+                      id="dni"
                       name="dni"
                       value={formData.dni}
                       onChange={handleInputChange}
@@ -333,9 +337,10 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Antigüedad (años):</label>
+                    <label htmlFor="antiguedad">Antigüedad (años):</label>
                     <input
                       type="number"
+                      id="antiguedad"
                       name="antiguedad"
                       value={formData.antiguedad}
                       onChange={handleInputChange}
@@ -344,8 +349,9 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>País:</label>
+                    <label htmlFor="pais">País:</label>
                     <select
+                      id="pais"
                       name="pais"
                       value={formData.pais}
                       onChange={handleInputChange}
