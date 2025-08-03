@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react'; 
+import { useEffect } from 'react'; 
 import { auth, provider, signInWithPopup } from '../firebase';
 import styles from '../page.module.css';
 import { useRouter } from 'next/navigation';

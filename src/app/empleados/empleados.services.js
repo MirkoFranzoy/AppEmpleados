@@ -91,10 +91,10 @@ const EmpleadosService = {
                 throw new Error('Error al cargar los países');
             }
             const data = await response.json();
-            const nombresPaises = data
+            return data
                 .map(pais => pais?.name?.common)
+                .filter(Boolean)
                 .sort();
-            return nombresPaises;
         } catch (error) {
             console.error('Error:', error);
             return paisesPorDefecto;

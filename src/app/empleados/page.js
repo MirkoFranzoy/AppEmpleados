@@ -27,10 +27,6 @@ export default function Home() {
   const [paises, setPaises] = useState([]);
 
   // Constantes
-  const paisesPorDefecto = [
-    'Argentina', 'Brasil', 'Chile', 'Colombia',
-    'España', 'México', 'Perú', 'Uruguay', 'Venezuela'
-  ];
 
   const abrirModal = (empleado = null) => {
     if (empleado) {
@@ -59,7 +55,7 @@ export default function Home() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === 'dni') {
-      const numerosFiltrados = value.replace(/[^0-9]/g, '');
+      const numerosFiltrados = value.replace(/\D/g, '');
       setFormData(prev => ({
         ...prev,
         [name]: numerosFiltrados

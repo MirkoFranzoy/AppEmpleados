@@ -53,7 +53,7 @@ export default function Productos() {
     const { name, value } = e.target;
     if (name === 'precio') {
       // Permitir solo números y punto decimal
-      const precioFiltrado = value.replace(/[^0-9.]/g, '');
+      const precioFiltrado = value.replace(/[^\d.]/g, '');
       setFormData(prev => ({
         ...prev,
         [name]: precioFiltrado
