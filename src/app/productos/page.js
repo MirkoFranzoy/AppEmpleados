@@ -79,7 +79,7 @@ export default function Productos() {
       const result = await ProductosService.upsert(productoData);
 
       if (!result.ok) {
-        throw new Error(result.error || 'Error en la respuesta del servidor');
+        throw new Error(result?.error || 'Error en la respuesta del servidor');
       }
 
       if (productoEditando) {
@@ -102,7 +102,7 @@ export default function Productos() {
         const result = await ProductosService.delete(id);
 
         if (!result.ok) {
-          throw new Error(result.error || 'Error en la respuesta del servidor');
+          throw new Error(result?.error || 'Error en la respuesta del servidor');
         }
 
         setProductos(prev => prev.filter(prod => prod.id !== id));
@@ -156,14 +156,14 @@ export default function Productos() {
           ProductosService.verificarToken(storedToken)
             .then(result => {
               if (!result.ok) {
-                throw new Error(result.error || 'Token inválido');
+                throw new Error(result?.error || 'Token inválido');
               }
               
               // Token válido, actualizar información del usuario
               setUser(user);
               localStorage.setItem('user', JSON.stringify({
-                email: user.email,
-                uid: user.uid
+                email: user?.email,
+                uid: user?.uid
               }));
             })
             .catch(error => {
@@ -181,8 +181,8 @@ export default function Productos() {
           user.getIdToken().then(idToken => {
             localStorage.setItem('authToken', idToken);
             localStorage.setItem('user', JSON.stringify({
-              email: user.email,
-              uid: user.uid
+              email: user?.email,
+              uid: user?.uid
             }));
             setUser(user);
             setLoading(false);
@@ -204,7 +204,7 @@ export default function Productos() {
           <div className={styles.header}>
               <h1>Lista de Productos</h1>
               <div>
-                  <span className={styles.userEmail}>Bienvenido, {user.email}</span>
+                  <span className={styles.userEmail}>Bienvenido, {user?.email}</span>
                   <button 
                       className={styles.logoutButton}
                       onClick={() => auth.signOut()}

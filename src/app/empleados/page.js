@@ -81,7 +81,7 @@ export default function Home() {
       const result = await EmpleadosService.upsert(empleadoData);
 
       if (!result.ok) {
-        throw new Error(result.error || 'Error en la respuesta del servidor');
+        throw new Error(result?.error || 'Error en la respuesta del servidor');
       }
 
       if (empleadoEditando) {
@@ -105,7 +105,7 @@ export default function Home() {
         const result = await EmpleadosService.delete(id);
 
         if (!result.ok) {
-          throw new Error(result.error || 'Error en la respuesta del servidor');
+          throw new Error(result?.error || 'Error en la respuesta del servidor');
         }
 
         setEmpleados(prev => prev.filter(emp => emp.id !== id));
@@ -161,14 +161,14 @@ export default function Home() {
           EmpleadosService.verificarToken(storedToken)
             .then(result => {
               if (!result.ok) {
-                throw new Error(result.error || 'Token inválido');
+                throw new Error(result?.error || 'Token inválido');
               }
               
               // Token válido, actualizar información del usuario
               setUser(user);
               localStorage.setItem('user', JSON.stringify({
-                email: user.email,
-                uid: user.uid
+                email: user?.email,
+                uid: user?.uid
               }));
             })
             .catch(error => {
@@ -186,8 +186,8 @@ export default function Home() {
           user.getIdToken().then(idToken => {
             localStorage.setItem('authToken', idToken);
             localStorage.setItem('user', JSON.stringify({
-              email: user.email,
-              uid: user.uid
+              email: user?.email,
+              uid: user?.uid
             }));
             setUser(user);
             setLoading(false);
@@ -210,7 +210,7 @@ export default function Home() {
           <div className={styles.header}>
               <h1>Lista de Empleados</h1>
               <div>
-                  <span className={styles.userEmail}>Bienvenido, {user.email}</span>
+                  <span className={styles.userEmail}>Bienvenido, {user?.email}</span>
                   <button 
                       className={styles.logoutButton}
                       onClick={() => auth.signOut()}

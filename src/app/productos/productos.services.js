@@ -35,7 +35,7 @@ const ProductosService = {
             return { ok: true, data };
         } catch (error) {
             console.error('Error upsert:', error);
-            return { ok: false, error: error.message };
+            return { ok: false, error: error?.message };
         }
     },
 
@@ -53,7 +53,7 @@ const ProductosService = {
             return { ok: true };
         } catch (error) {
             console.error('Error al eliminar:', error);
-            return { ok: false, error: error.message };
+            return { ok: false, error: error?.message };
         }
     },
 
@@ -74,7 +74,7 @@ const ProductosService = {
             return { ok: true, data: await response.json() };
         } catch (error) {
             console.error('Error de verificación de token:', error);
-            return { ok: false, error: error.message };
+            return { ok: false, error: error?.message };
         }
     },
 
