@@ -31,7 +31,7 @@ export default function LoginPage() {
             })
             .catch((error) => {
                 console.error('Error de autenticación:', error);
-                alert('Error al iniciar sesión con Google');
+                alert(error?.message || 'Error al iniciar sesión con Google');
             });
     };
 

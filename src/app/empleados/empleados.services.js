@@ -96,7 +96,7 @@ const EmpleadosService = {
                 .filter(Boolean)
                 .sort();
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error al cargar países:', error);
             return paisesPorDefecto;
         }
     }

@@ -94,7 +94,7 @@ export default function Home() {
       cerrarModal();
     } catch (error) {
       console.error('Error:', error);
-      alert('Hubo un error. Por favor, inténtelo de nuevo.');
+      alert(error?.message || 'Hubo un error. Por favor, inténtelo de nuevo.');
     }
   };
 
@@ -110,8 +110,8 @@ export default function Home() {
 
         setEmpleados(prev => prev.filter(emp => emp.id !== id));
       } catch (error) {
-        console.error('Error al eliminar:', error);
-        alert('Error al eliminar el empleado');
+      console.error('Error al eliminar:', error);
+      alert(error?.message || 'Error al eliminar el empleado');
       }
     }
   };
